@@ -1,9 +1,9 @@
 import { Button } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 
-interface indexProps {}
+interface indexoneProps {}
 
-const index: React.FC<indexProps> = () => {
+const indexone: React.FC<indexoneProps> = () => {
 	const [num, setNum] = useState<number | null>(null)
 	const [posts, setPosts] = useState([])
 
@@ -12,27 +12,27 @@ const index: React.FC<indexProps> = () => {
 			const data = await (
 				await fetch('https://jsonplaceholder.typicode.com/posts')
 			).json()
+			console.log(data)
+
 			setPosts(data)
 		}
 		getData()
 	}, [])
-	if (posts === []) {
-		return <p>loading</p>
-	}
+
 	const plusOne = () => {
 		setNum(num + 1)
 	}
 	return (
-		<>
+		<div>
 			<p>{num}</p>
-			<Button onClick={plusOne} p={10}>
-				123
+			<Button onClick={plusOne} p={6}>
+				click me
 			</Button>
 			{posts.map((post) => {
 				return <p key={post.id}>{post.title}</p>
 			})}
-		</>
+		</div>
 	)
 }
 
-export default index
+export default indexone
