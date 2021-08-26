@@ -19,6 +19,9 @@ const index: React.FC<indexProps> = () => {
 	const plusOne = () => {
 		setNum(num + 1)
 	}
+	if (posts.length === 0) {
+		return <p>loading</p>
+	}
 	return (
 		<>
 			<p>{num}</p>
